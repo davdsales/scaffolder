@@ -1504,6 +1504,12 @@
             "example": "Definir alertas para uso de CPU e memória.",
             "maxLength": 1000
           },
+          "category": {
+            "type": "string",
+            "description": "Categoria da tarefa",
+            "example": "Faculdade",
+            "maxLength": 50
+          },
           "priority": {
             "type": "string",
             "description": "Prioridade da tarefa",
@@ -1615,6 +1621,11 @@
           "updatedAt": {
             "type": "string",
             "description": "Data de última atualização"
+          },
+          "category": {
+            "type": "object",
+            "description": "Categoria da tarefa",
+            "example": "Faculdade"
           }
         },
         "required": [

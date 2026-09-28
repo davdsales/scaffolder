@@ -38,6 +38,12 @@ export class CreateTaskDto {
   @MaxLength(1000, { message: 'A descrição deve ter no máximo 1000 caracteres.' })
   description?: string;
 
+  @ApiPropertyOptional({description: 'Categoria da tarefa', example: 'Faculdade', maxLength: 50})
+  @IsOptional()
+  @IsString()
+  @MaxLength(50, {message: 'A descrição deve ter no máximo 50 caracteres.'})
+  category?: string;
+
   @ApiPropertyOptional({ description: 'Prioridade da tarefa', enum: TaskPriorityEnum, default: TaskPriorityEnum.MEDIUM })
   @IsOptional()
   @IsEnum(TaskPriorityEnum, { message: 'Prioridade inválida.' })
@@ -47,6 +53,7 @@ export class CreateTaskDto {
   @IsOptional()
   @IsDateString({}, { message: 'Data de entrega limite deve ser uma string ISO válida.' })
   dueDate?: string;
+
 }
 
 export class UpdateTaskDto {
@@ -120,6 +127,11 @@ export class TaskDto {
 
   @ApiProperty({ description: 'Data de última atualização' })
   updatedAt!: string;
+
+  @ApiPropertyOptional({ description: 'Categoria da tarefa', example: 'Faculdade' })
+  @IsOptional()
+  @IsString()
+  category?: string | null;
 }
 
 export class PaginatedTasksResponseDto {
